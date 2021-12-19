@@ -28,6 +28,9 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!--begin::Fonts-->
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
 		<!--end::Fonts-->
+		<!-- Datatables.Net -->
+		<link href="<?= base_url('assets')?>/theme/html/demo1/dist/assets/plugins/custom/datatables/datatables.bundle1894.css?v=7.1.9" rel="stylesheet" type="text/css" />
+		<!-- END Datatable.Net -->
 		<!--begin::Global Theme Styles(used by all pages)-->
 		<link href="<?= base_url('assets')?>/theme/html/demo1/dist/assets/plugins/global/plugins.bundle1894.css?v=7.1.9" rel="stylesheet" type="text/css" />
 		<link href="<?= base_url('assets')?>/theme/html/demo1/dist/assets/plugins/custom/prismjs/prismjs.bundle1894.css?v=7.1.9" rel="stylesheet" type="text/css" />
@@ -142,7 +145,14 @@ License: You must have a valid license purchased only from themeforest(the above
 									<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
 								</li>
 
-                                <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                <li class="menu-item menu-item-submenu 
+								<?=
+								$this->uri->segment(1) == 'Master_user' ||
+								$this->uri->segment(1) == 'Master_team' ||
+								$this->uri->segment(1) == 'Master_template' ||
+								$this->uri->segment(1) == 'Master_kendala'?'menu-item-open menu-item-here':"" 
+								?>" 
+								aria-haspopup="true" data-menu-toggle="hover">
 									<a href="javascript:;" class="menu-link menu-toggle">
 										<span class="svg-icon menu-icon">
 											<!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Code/Compiling.svg-->
@@ -166,32 +176,40 @@ License: You must have a valid license purchased only from themeforest(the above
 													<span class="menu-text">Master</span>
 												</span>
 											</li>
-											<li class="menu-item" aria-haspopup="true">
-												<a href="layout/subheader/toolbar.html" class="menu-link">
+											<li class="menu-item 
+											<?=
+											$this->uri->segment(1) == 'Master_user'?'menu-item-active':"" ?>" aria-haspopup="true">
+												<a href="<?= site_url('Master_user')?>" class="menu-link">
 													<i class="menu-bullet menu-bullet-dot">
 														<span></span>
 													</i>
 													<span class="menu-text">Users</span>
 												</a>
 											</li>
-											<li class="menu-item" aria-haspopup="true">
-												<a href="layout/subheader/actions.html" class="menu-link">
+											<li class="menu-item 
+											<?=
+											$this->uri->segment(1) == 'Master_team'?'menu-item-active':"" ?>" aria-haspopup="true">
+												<a href="<?= site_url('Master_team')?>" class="menu-link">
 													<i class="menu-bullet menu-bullet-dot">
 														<span></span>
 													</i>
 													<span class="menu-text">Team</span>
 												</a>
 											</li>
-											<li class="menu-item" aria-haspopup="true">
-												<a href="layout/subheader/actions.html" class="menu-link">
+											<li class="menu-item 
+											<?=
+											$this->uri->segment(1) == 'Master_template'?'menu-item-active':"" ?>" aria-haspopup="true">
+												<a href="<?= site_url('Master_template')?>" class="menu-link">
 													<i class="menu-bullet menu-bullet-dot">
 														<span></span>
 													</i>
 													<span class="menu-text">Template</span>
 												</a>
 											</li>
-											<li class="menu-item" aria-haspopup="true">
-												<a href="layout/subheader/actions.html" class="menu-link">
+											<li class="menu-item 
+											<?=
+											$this->uri->segment(1) == 'Master_kendala'?'menu-item-active':"" ?>" aria-haspopup="true">
+												<a href="<?= site_url('Master_kendala')?>" class="menu-link">
 													<i class="menu-bullet menu-bullet-dot">
 														<span></span>
 													</i>
@@ -235,7 +253,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												</a>
 											</li>
 											<li class="menu-item" aria-haspopup="true">
-												<a href="layout/subheader/actions.html" class="menu-link">
+												<a href="<?= site_url('#')?>" class="menu-link">
 													<i class="menu-bullet menu-bullet-dot">
 														<span></span>
 													</i>
@@ -296,7 +314,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												</a>
 											</li>
 											<li class="menu-item" aria-haspopup="true">
-												<a href="layout/subheader/actions.html" class="menu-link">
+												<a href="<?= site_url('#')?>" class="menu-link">
 													<i class="menu-bullet menu-bullet-dot">
 														<span></span>
 													</i>
@@ -362,7 +380,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												</a>
 											</li>
 											<li class="menu-item" aria-haspopup="true">
-												<a href="layout/subheader/actions.html" class="menu-link">
+												<a href="<?= site_url('#')?>" class="menu-link">
 													<i class="menu-bullet menu-bullet-dot">
 														<span></span>
 													</i>
@@ -370,7 +388,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												</a>
 											</li>
 											<li class="menu-item" aria-haspopup="true">
-												<a href="layout/subheader/actions.html" class="menu-link">
+												<a href="<?= site_url('#')?>" class="menu-link">
 													<i class="menu-bullet menu-bullet-dot">
 														<span></span>
 													</i>
@@ -378,7 +396,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												</a>
 											</li>
 											<li class="menu-item" aria-haspopup="true">
-												<a href="layout/subheader/actions.html" class="menu-link">
+												<a href="<?= site_url('#')?>" class="menu-link">
 													<i class="menu-bullet menu-bullet-dot">
 														<span></span>
 													</i>
@@ -2140,6 +2158,12 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!--end::Global Theme Bundle-->
 		<!--begin::Page Scripts(used by this page)-->
 		<script src="<?= base_url('assets')?>/theme/html/demo1/dist/assets/js/pages/builder1894.js?v=7.1.9"></script>
+		<!--end::Page Scripts-->
+		<!--begin::Page Vendors(used by this page)-->
+		<script src="<?= base_url('assets')?>/theme/html/demo1/dist/assets/plugins/custom/datatables/datatables.bundle1894.js?v=7.1.9"></script>
+		<!--end::Page Vendors-->
+		<!--begin::Page Scripts(used by this page)-->
+		<script src="<?= base_url('assets')?>/theme/html/demo1/dist/assets/js/pages/crud/datatables/data-sources/html1894.js?v=7.1.9"></script>
 		<!--end::Page Scripts-->
 	</body>
 	<!--end::Body-->
