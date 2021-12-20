@@ -2186,6 +2186,15 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!--begin::Page Scripts(used by this page)-->
 		<script src="<?= base_url('assets')?>/theme/html/demo1/dist/assets/js/pages/crud/datatables/data-sources/html1894.js?v=7.1.9"></script>
 		<!--end::Page Scripts-->
+
+		<!-- Master Template JS -->
+		<!--begin::Page Vendors(used by this page)-->
+		<script src="<?= base_url('assets')?>/theme/html/demo1/dist/assets/plugins/custom/ckeditor/ckeditor-document.bundle1894.js?v=7.1.9"></script>
+		<!--end::Page Vendors-->
+		<!--begin::Page Scripts(used by this page)-->
+		<script src="<?= base_url('assets')?>/theme/html/demo1/dist/assets/js/pages/crud/forms/editors/ckeditor-document1894.js?v=7.1.9"></script>
+		<!--end::Page Scripts-->
+
 	</body>
 	<!--end::Body-->
 

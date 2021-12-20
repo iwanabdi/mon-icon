@@ -17,6 +17,11 @@ class Master_template extends CI_Controller {
         $this->template->load('template', 'master/template/list_template');
     }
 
+    public function form_template()
+    {
+        $this->template->load('template', 'master/template/form_template');
+    }
+
 }
 
 /* End of file Master_template.php */
