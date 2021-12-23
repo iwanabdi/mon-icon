@@ -20,7 +20,7 @@ class M_kendala extends CI_Model {
     		"nama_kendala" 		=> $this->input->post('nama'),
     		"tipe_kendala"		=> $this->input->post('type'),
     		"create_by"		=> 1,
-			"create_on"   		=> date("d-m-Y")
+			"create_on"   		=> date("Y-m-d")
     	];
     	$this->db->insert('kendala', $data);
     }

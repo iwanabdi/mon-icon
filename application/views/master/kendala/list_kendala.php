@@ -39,7 +39,10 @@
 								<td><?=$data->kendala_id?></td>
                                 <td><?=$data->tipe_kendala?></td>
                                 <td><?=$data->nama_kendala?></td>
-                                <td nowrap="nowrap"></td>
+                                <td>
+									<i class="flaticon2-pen text-danger"></i>
+									<i class="flaticon2-open-box text-warning"></i>	
+								</td>
                             </tr>
 						<?php } ?>
                         </tbody>
