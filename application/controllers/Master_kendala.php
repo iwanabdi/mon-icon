@@ -8,14 +8,32 @@ class Master_kendala extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        //Do your magic here
+		$this->load->model('M_kendala');
+
     }
     
 
     public function index()
     {
-        $this->template->load('template', 'master/kendala/list_kendala');
+		$data['kendala'] 	= $this->M_kendala->get_kendala();
+        $this->template->load('template', 'master/kendala/list_kendala',$data);
     }
+
+	public function add()
+	{
+		$data['kendala'] 	= $this->M_kendala->get_kendala();
+		$this->template->load('template', 'master/kendala/add_kendala', $data);
+	}
+
+	function proses_add_data()
+	{
+		$this->M_kendala->proses_add_data();
+		$this->session->set_flashdata('pesan', 
+			'<div class="alert alert-success" role="alert">
+				Data Berhasil Ditambah!
+			</div>');
+		redirect('Master_kendala','refresh');
+	}
 
 }
 
