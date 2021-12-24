@@ -19,14 +19,12 @@ class Master_kendala extends CI_Controller {
 
 	public function add()
 	{
-		$data['kendala'] 	= $this->M_kendala->get_kendala();
-		$this->template->load('template', 'master/kendala/add_kendala', $data);
+		$this->template->load('template', 'master/kendala/add_kendala');
 	}
 
 	public function edit($id)
 	{
-		$id = $this->input->post('id');
-		$data['kendala'] 	= $this->M_kendala->get_kendala($id)->result();
+		$data['kendala'] = $this->M_kendala->get_kendala($id)->result();
 		$this->template->load('template', 'master/kendala/edit_kendala', $data);
 	}
 

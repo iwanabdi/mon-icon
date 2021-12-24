@@ -27,16 +27,16 @@
                     <table class="table table-bordered table-hover table-checkable" id="kt_datatable" style="margin-top: 13px !important">
                         <thead>
                             <tr>
-                                <th>Kendala ID</th>
+                                <th>No</th>
                                 <th>Tipe Kendala</th>
                                 <th>Nama Kendala</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-												<?php foreach ($kendala->result() as $key => $data)  {?>
+												<?php $no = 1;foreach ($kendala->result() as $key => $data)  {?>
                             <tr>
-																<td><?=$data->kendala_id?></td>
+																<td><?=$no++;?></td>
                                 <td><?=$data->tipe_kendala?></td>
                                 <td><?=$data->nama_kendala?></td>
                                 <td>

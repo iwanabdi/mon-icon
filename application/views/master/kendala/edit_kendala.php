@@ -23,18 +23,18 @@
                     </div>
                 </div>
 				<!--begin::Form-->
-				<?php foreach ($kendala as $key => $data) :?>
 				<form action="<?= site_url('Master_kendala/proses_edit_data')?>" method="POST">
+				<?php foreach ($kendala as $key => $data) : ?>
 				<div class="card-body">
 				<div class="form-group">
 					<input type="hidden" class="form-control" name="id" required value="<?= $data->kendala_id?>"/>
 					<label for="exampleSelect1">Tipe Kendala <span class="text-danger">*</span></label>
 					<select class="form-control" name="type" required >
-						<option>FOC</option>
-						<option>FOT</option>
-						<option>Perijinan</option>
-						<option>Customer</option>
-						<option>Service</option>
+						<option <?php if($data->tipe_kendala == 'FOC' ): ?> selected <?php endif?>>FOC</option>
+						<option <?php if($data->tipe_kendala == 'FOT' ): ?> selected <?php endif?>>FOT</option>
+						<option <?php if($data->tipe_kendala == 'Perijinan' ): ?> selected <?php endif?>>Perijinan</option>
+						<option <?php if($data->tipe_kendala == 'Customer' ): ?> selected <?php endif?>>Customer</option>
+						<option <?php if($data->tipe_kendala == 'Service' ): ?> selected <?php endif?>>Service</option>
 					</select>
 				</div>
 				<div class="form-group">
@@ -45,8 +45,8 @@
 				<button type="submit" class="btn btn-primary mr-2">Submit</button>
 				<button type="reset" class="btn btn-secondary">Reset</button>
 				</div>
-				</form>
 				<?php endforeach; ?>
+				</form>
 				<!--end::Form-->
             </div>
             <!--end::Card-->
