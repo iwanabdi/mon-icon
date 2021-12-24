@@ -23,6 +23,13 @@ class Master_kendala extends CI_Controller {
 		$this->template->load('template', 'master/kendala/add_kendala', $data);
 	}
 
+	public function edit($id)
+	{
+		$id = $this->input->post('id');
+		$data['kendala'] 	= $this->M_kendala->get_kendala($id)->result();
+		$this->template->load('template', 'master/kendala/edit_kendala', $data);
+	}
+
 	function proses_add_data()
 	{
 		$this->M_kendala->proses_add_data();
@@ -35,9 +42,8 @@ class Master_kendala extends CI_Controller {
 
 	function proses_edit_data()
 	{
-		$this->M_kendala->proses_edit_data();
+		$this->M_kendala->edit_data();
 		redirect('Master_kendala','refresh');
-
 	}
 
 	function hapus_data()

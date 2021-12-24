@@ -27,6 +27,19 @@ class M_kendala extends CI_Model {
     	$this->db->insert('kendala', $data);
     }
 
+	function edit_data()
+    {
+		$data = [
+    		"update_by"		=> 1,
+			"nama_kendala" 		=> $this->input->post('nama'),
+    		"tipe_kendala"		=> $this->input->post('type'),
+    		"update_on"		=> date('Y-m-d')
+    	];
+    	$id = $this->input->post('id', true);
+    	$this->db->where('kendala_id', $id);
+    	$this->db->update('kendala', $data);
+    }
+
 	function hapus_data()
     {
 		$data = [

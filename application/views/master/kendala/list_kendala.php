@@ -34,18 +34,21 @@
                             </tr>
                         </thead>
                         <tbody>
-						<?php foreach ($kendala->result() as $key => $data)  {?>
+												<?php foreach ($kendala->result() as $key => $data)  {?>
                             <tr>
-								<td><?=$data->kendala_id?></td>
+																<td><?=$data->kendala_id?></td>
                                 <td><?=$data->tipe_kendala?></td>
                                 <td><?=$data->nama_kendala?></td>
                                 <td>
-									<button type="button" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#hapus_modal<?=$data->kendala_id;?>" data-backdrop="static" data-keyboard="false">
-										<i class="fas fa-trash-alt"></i>
-									</button>
-								</td>
+																	<a href="<?= site_url('Master_kendala/edit/'.$data->kendala_id)?>">
+																		<i class="far fa-edit text-success mr-5"></i>
+																	</a>
+																	<a href="#hapus_modal<?=$data->kendala_id;?>" data-toggle="modal" >
+																		<i class="far fa-trash-alt text-danger mr-5"></i>
+																	</a>
+															</td>
                             </tr>
-						<?php } ?>
+												<?php } ?>
                         </tbody>
                     </table>
                     <!--end: Datatable-->
