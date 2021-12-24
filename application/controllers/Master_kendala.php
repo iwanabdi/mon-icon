@@ -9,9 +9,7 @@ class Master_kendala extends CI_Controller {
     {
         parent::__construct();
 		$this->load->model('M_kendala');
-
     }
-    
 
     public function index()
     {
@@ -32,6 +30,19 @@ class Master_kendala extends CI_Controller {
 			'<div class="alert alert-success" role="alert">
 				Data Berhasil Ditambah!
 			</div>');
+		redirect('Master_kendala','refresh');
+	}
+
+	function proses_edit_data()
+	{
+		$this->M_kendala->proses_edit_data();
+		redirect('Master_kendala','refresh');
+
+	}
+
+	function hapus_data()
+	{
+		$this->M_kendala->hapus_data();
 		redirect('Master_kendala','refresh');
 	}
 
