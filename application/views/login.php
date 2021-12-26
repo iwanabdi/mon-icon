@@ -62,9 +62,7 @@ License: You must have a valid license purchased only from themeforest(the above
 					<div class="login-form text-center text-white p-7 position-relative overflow-hidden">
 						<!--begin::Login Header-->
 						<div class="d-flex flex-center mb-15">
-							<a href="#">
-								<img src="<?= base_url('assets/')?>theme/html/demo1/dist/assets/media/logos/logo-letter-9.png" class="max-h-100px" alt="" />
-							</a>
+							<img src="<?= base_url('assets/')?>theme/html/demo1/dist/assets/media/logos/logo-letter-9.png" class="max-h-100px" alt="" />
 						</div>
 						<!--end::Login Header-->
 						<!--begin::Login Sign in form-->
@@ -76,12 +74,19 @@ License: You must have a valid license purchased only from themeforest(the above
 								<div class="form-group">
 									<input class="form-control h-auto text-white placeholder-white opacity-70 bg-dark-o-70 rounded-pill border-0 py-4 px-8 mb-5" type="password" placeholder="Password" name="password" />
 								</div>
+								<div class="form-group">
+									<select class="form-control h-auto text-white placeholder-white opacity-100 bg-dark-o-100 rounded-pill border-0 py-4 px-8 mb-5" name="type" required >
+									<option disabled selected>--Login Sebagai--</option>
+									<option value="1">Pegawai</option>
+									<option value="2">Mitra</option>
+									</select>
+								</div>
 								<div class="form-group text-center mt-10">
 									<button id="kt_login_signin_submit" class="btn btn-pill btn-outline-white font-weight-bold opacity-90 px-15 py-3">Sign In</button>
 								</div>
 							</form>
 						</div>
-						<!--end::Login Sign in form-->
+						<!--end::Login Sign in form-->	
 					</div>
 				</div>
 			</div>
