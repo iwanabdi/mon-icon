@@ -5,7 +5,9 @@
     <div class="d-flex flex-column-fluid">
         <!--begin::Container-->
         <div class="container">
-			
+						<!--begin::Notice-->
+						<?= $this->session->flashdata('pesan'); ?>
+            <!--end::Notice-->
             <!--begin::Card-->
             <div class="card card-custom">
                 <div class="card-header">

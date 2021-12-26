@@ -5,6 +5,9 @@
     <div class="d-flex flex-column-fluid">
         <!--begin::Container-->
         <div class="container">
+						<!--begin::Notice-->
+						<?= $this->session->flashdata('pesan'); ?>
+            <!--end::Notice-->
             <!--begin::Card-->
             <div class="card card-custom">
                 <div class="card-header">
@@ -57,17 +60,19 @@
 																	?>
 																</td>
                                 <td>
+																<a href="<?= site_url('Master_user/edit/'.$data->user_id)?>">
+																	<i class="far fa-edit text-success mr-5"></i>
+																</a>
 																<?php if ($data->status == 0){?>
 																	<a href="#aktif<?=$data->user_id;?>" data-toggle="modal" >
 																	<i class="fas fa-lock-open text-info mr-5"></i>
 																	</a>
 																<?php } ?>
-																<a href="<?= site_url('Master_user/edit/'.$data->user_id)?>">
-																	<i class="far fa-edit text-success mr-5"></i>
-																</a>
+																<?php if ($data->status == 1){?>
 																<a href="#hapus_modal<?=$data->user_id;?>" data-toggle="modal" >
-																	<i class="far fa-trash-alt text-danger mr-5"></i>
+																	<i class="far fas fa-lock text-danger mr-5"></i>
 																</a>
+																<?php } ?>
 															</td>
                             </tr>
 												<?php } ?>
@@ -89,7 +94,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Yakin ingin menghapus?</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Yakin ingin menonaktifkan?</h5>
         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
@@ -97,11 +102,11 @@
       <div class="modal-body">
         <?php echo form_open_multipart('Master_user/hapus_data'); ?>
         <input type="hidden" id="id" name="id" value="<?=$data->user_id?>">
-        <p>Anda akan menghapus data "<?=$data->nama_user ?>"</p>
+        <p>Anda akan menonaktifkan data "<?=$data->nama_user ?>"</p>
       </div>	
       <div class="modal-footer">
         <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-        <button class="btn btn-danger" type="submit">Hapus</button>
+        <button class="btn btn-danger" type="submit">Ya</button>
         <?php echo form_close(); ?>
       </div>
     </div>

@@ -7,6 +7,7 @@ class Master_user extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
+		cekblm_login();
 		$this->load->model('M_user');
     }
 
@@ -63,7 +64,7 @@ class Master_user extends CI_Controller {
 			$this->M_user->edit_data();
 			$this->session->set_flashdata('pesan', 
 			'<div class="alert alert-success" role="alert">
-				Data Berhasil Ditambah!
+				Data Berhasil Diedit!
 			</div>');
 			redirect('Master_user','refresh');
 		}
@@ -72,12 +73,20 @@ class Master_user extends CI_Controller {
 	function hapus_data()
 	{
 		$this->M_user->hapus_data();
+		$this->session->set_flashdata('pesan', 
+			'<div class="alert alert-success" role="alert">
+				Data Berhasil Dinonaktifkan!
+			</div>');
 		redirect('Master_user','refresh');
 	}
 
 	function aktif_data()
 	{
 		$this->M_user->aktif_data();
+		$this->session->set_flashdata('pesan', 
+			'<div class="alert alert-success" role="alert">
+				Data Berhasil Diaktifkan!
+			</div>');
 		redirect('Master_user','refresh');
 	}
 

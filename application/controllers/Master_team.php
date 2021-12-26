@@ -8,14 +8,20 @@ class Master_team extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        //Do your magic here
+		cekblm_login();
+		$this->load->model('M_mitra');
     }
-    
 
     public function index()
     {
-        $this->template->load('template', 'master/team/list_team');
+		$data['user'] 	= $this->M_mitra->get_mitra();
+		$this->template->load('template', 'master/team/list_team',$data);
     }
+
+	public function add()
+	{
+		$this->template->load('template', 'master/team/add_team');
+	}
 
 }
 

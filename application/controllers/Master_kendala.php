@@ -8,6 +8,7 @@ class Master_kendala extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
+		cekblm_login();
 		$this->load->model('M_kendala');
     }
 
@@ -41,12 +42,20 @@ class Master_kendala extends CI_Controller {
 	function proses_edit_data()
 	{
 		$this->M_kendala->edit_data();
+		$this->session->set_flashdata('pesan', 
+			'<div class="alert alert-success" role="alert">
+				Data Berhasil Diedit!
+			</div>');
 		redirect('Master_kendala','refresh');
 	}
 
 	function hapus_data()
 	{
 		$this->M_kendala->hapus_data();
+		$this->session->set_flashdata('pesan', 
+			'<div class="alert alert-success" role="alert">
+				Data Berhasil Dihapus!
+			</div>');
 		redirect('Master_kendala','refresh');
 	}
 
