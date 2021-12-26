@@ -24,28 +24,25 @@
                 </div>
 				<!--begin::Form-->
 				<form action="<?= site_url('Master_kendala/proses_edit_data')?>" method="POST">
-				<?php foreach ($kendala as $key => $data) : ?>
 				<div class="card-body">
 				<div class="form-group">
-					<input type="hidden" class="form-control" name="id" required value="<?= $data->kendala_id?>"/>
+					<input type="hidden" class="form-control" name="id" required value="<?= $kendala->kendala_id?>"/>
 					<label for="exampleSelect1">Tipe Kendala <span class="text-danger">*</span></label>
 					<select class="form-control" name="type" required >
-						<option <?php if($data->tipe_kendala == 'FOC' ): ?> selected <?php endif?>>FOC</option>
-						<option <?php if($data->tipe_kendala == 'FOT' ): ?> selected <?php endif?>>FOT</option>
-						<option <?php if($data->tipe_kendala == 'Perijinan' ): ?> selected <?php endif?>>Perijinan</option>
-						<option <?php if($data->tipe_kendala == 'Customer' ): ?> selected <?php endif?>>Customer</option>
-						<option <?php if($data->tipe_kendala == 'Service' ): ?> selected <?php endif?>>Service</option>
+						<option <?php if($kendala->tipe_kendala == 'FOC' ): ?> selected <?php endif?>>FOC</option>
+						<option <?php if($kendala->tipe_kendala == 'FOT' ): ?> selected <?php endif?>>FOT</option>
+						<option <?php if($kendala->tipe_kendala == 'Perijinan' ): ?> selected <?php endif?>>Perijinan</option>
+						<option <?php if($kendala->tipe_kendala == 'Customer' ): ?> selected <?php endif?>>Customer</option>
+						<option <?php if($kendala->tipe_kendala == 'Service' ): ?> selected <?php endif?>>Service</option>
 					</select>
 				</div>
 				<div class="form-group">
 					<label for="exampleInputPassword1">Keterangan Kendala <span class="text-danger">*</span></label>
-					<input type="text" class="form-control" name="nama" required value="<?=$data->nama_kendala?>"/>
+					<input type="text" class="form-control" name="nama" required value="<?=$kendala->nama_kendala?>"/>
 				</div>
 				<div class="card-footer">
 				<button type="submit" class="btn btn-primary mr-2">Submit</button>
-				<button type="reset" class="btn btn-secondary">Reset</button>
 				</div>
-				<?php endforeach; ?>
 				</form>
 				<!--end::Form-->
             </div>

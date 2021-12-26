@@ -53,9 +53,9 @@ class Auth extends CI_Controller {
 			if ($query->num_rows() > 0 && $status == 1) {
 				$row = $query->row();
 				$param = array(
-					'mitra_id' 		=> $row->user_id,
-					'nama_mitra'	=> $row->nama_user,
-					'email'			=> $row->email_user
+					'user_id' 		=> $row->mitra_id,
+					'nama'			=> $row->nama_mitra,
+					'email'			=> $row->email
 				);
 				$this->session->set_userdata($param);
 				redirect('');

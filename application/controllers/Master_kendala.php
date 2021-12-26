@@ -24,7 +24,7 @@ class Master_kendala extends CI_Controller {
 
 	public function edit($id)
 	{
-		$data['kendala'] = $this->M_kendala->get_kendala($id)->result();
+		$data['kendala'] = $this->M_kendala->get_kendala($id)->row();
 		$this->template->load('template', 'master/kendala/edit_kendala', $data);
 	}
 

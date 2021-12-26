@@ -23,29 +23,61 @@ class Master_user extends CI_Controller {
 
 	public function edit($id)
 	{
-		$data['kendala'] = $this->M_user->get_user($id)->result();
-		$this->template->load('template', 'master/kendala/edit_user', $data);
+		$data['user'] = $this->M_user->get_user($id)->row();
+		$this->template->load('template', 'master/user/edit_user', $data);
 	}
 
 	function proses_add_data()
 	{
-		$this->M_user->proses_add_data();
-		$this->session->set_flashdata('pesan', 
+		$t_email = $this->input->post('email');
+		$count = $this->M_user->cek_email($t_email);
+		if ($count > 0) {
+			$this->session->set_flashdata('msg_email', 
+			'<div class="alert alert-warning" role="alert">
+				Gagal Tambah Data - Email Sudah Digunakan!
+			</div>');
+			redirect('Master_user/add');
+			
+		}else{
+			$this->M_user->proses_add_data();
+			$this->session->set_flashdata('pesan', 
 			'<div class="alert alert-success" role="alert">
 				Data Berhasil Ditambah!
 			</div>');
-		redirect('Master_user','refresh');
+			redirect('Master_user','refresh');
+		}
 	}
 
 	function proses_edit_data()
 	{
-		$this->M_user->edit_data();
-		redirect('Master_user','refresh');
+		$t_email = $this->input->post('email');
+		$count = $this->M_user->cek_email($t_email);
+		if ($count > 1) {
+			$this->session->set_flashdata('msg_email', 
+			'<div class="alert alert-warning" role="alert">
+				Gagal Edit Data - Email Sudah Digunakan!
+			</div>');
+			redirect('Master_user/add');
+			
+		}else{
+			$this->M_user->edit_data();
+			$this->session->set_flashdata('pesan', 
+			'<div class="alert alert-success" role="alert">
+				Data Berhasil Ditambah!
+			</div>');
+			redirect('Master_user','refresh');
+		}
 	}
 
 	function hapus_data()
 	{
 		$this->M_user->hapus_data();
+		redirect('Master_user','refresh');
+	}
+
+	function aktif_data()
+	{
+		$this->M_user->aktif_data();
 		redirect('Master_user','refresh');
 	}
 

@@ -23,6 +23,7 @@
                     </div>
                 </div>
 				<!--begin::Form-->
+				<?= $this->session->flashdata('msg_email');?>
 				<form action="<?= site_url('Master_user/proses_add_data')?>" method="POST">
 				<div class="card-body">
 				<div class="form-group">
