@@ -67,22 +67,23 @@ License: You must have a valid license purchased only from themeforest(the above
 						<!--end::Login Header-->
 						<!--begin::Login Sign in form-->
 						<div class="login-signin">
-							<form class="form" id="kt_login_signin_form">
+							<form class="form" action="<?= site_url('Auth/process_login')?>" method="POST">
+							<?php echo $this->session->flashdata('pesan');?>
 								<div class="form-group">
-									<input class="form-control h-auto text-white placeholder-white opacity-70 bg-dark-o-70 rounded-pill border-0 py-4 px-8 mb-5" type="text" placeholder="Email" name="username" autocomplete="off" />
+									<input class="form-control h-auto text-white placeholder-white opacity-70 bg-dark-o-70 rounded-pill border-0 py-4 px-8 mb-5" type="email" placeholder="Email" name="username" required />
 								</div>
 								<div class="form-group">
-									<input class="form-control h-auto text-white placeholder-white opacity-70 bg-dark-o-70 rounded-pill border-0 py-4 px-8 mb-5" type="password" placeholder="Password" name="password" />
+									<input class="form-control h-auto text-white placeholder-white opacity-70 bg-dark-o-70 rounded-pill border-0 py-4 px-8 mb-5" type="password" placeholder="Password" name="password" required/>
 								</div>
 								<div class="form-group">
-									<select class="form-control h-auto text-white placeholder-white opacity-100 bg-dark-o-100 rounded-pill border-0 py-4 px-8 mb-5" name="type" required >
-									<option disabled selected>--Login Sebagai--</option>
+									<label>Login Sebagai </label>
+									<select class="form-control h-auto text-white placeholder-white opacity-100 bg-primary rounded-pill border-0 py-4 px-8 mb-5" name="type" required >
 									<option value="1">Pegawai</option>
 									<option value="2">Mitra</option>
 									</select>
 								</div>
 								<div class="form-group text-center mt-10">
-									<button id="kt_login_signin_submit" class="btn btn-pill btn-outline-white font-weight-bold opacity-90 px-15 py-3">Sign In</button>
+									<button type="submit" class="btn btn-pill btn-outline-white font-weight-bold opacity-90 px-15 py-3">Sign In</button>
 								</div>
 							</form>
 						</div>

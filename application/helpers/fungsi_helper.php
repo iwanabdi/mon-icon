@@ -6,10 +6,10 @@
 		$user_session = $CI->session->userdata('user_id');
 		// $email = $CI->session->userdata('email');
 		$user = $CI->fungsi->user_login()->status;
-		if ($user_session && $user != 0) {
+		if ($user_session && $user != 0 || $user_session && $user != null) {
 			$CI->session->set_flashdata('login', 'sudah login');
 			// echo "<script>alert('Sudah Login, Logout Dulu Bosss')</script>";
-			redirect('home','refresh');
+			redirect('','refresh');
 		}
 	}
 
@@ -20,11 +20,11 @@
 		$user = $CI->fungsi->user_login()->status;
 		if (!$user_session) {
 			$CI->session->set_flashdata('login', 'belum login');
-			redirect('','refresh');
+			redirect('Auth','refresh');
 		}else if($user == 0){
 			$CI->session->set_flashdata('login', 'tidak aktif');
 			// echo "<script>alert('Akun Anda Tidak Aktif')</script>";
-			redirect('','refresh');
+			redirect('Auth','refresh');
 		}
 	}
 
@@ -48,11 +48,10 @@
 		$user = $CI->fungsi->user_login()->status;
 		if (!$user_session) {
 			$CI->session->set_flashdata('login', 'belum login');
-			redirect('','refresh');
+			redirect('Auth','refresh');
 		}else if($user == 0){
 			$CI->session->set_flashdata('login', 'tidak aktif');
-			// echo "<script>alert('Akun Anda Tidak Aktif')</script>";
-			redirect('','refresh');
+			redirect('Auth','refresh');
 		}
 	}
 

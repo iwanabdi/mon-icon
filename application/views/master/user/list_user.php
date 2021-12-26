@@ -43,9 +43,6 @@
                                 <td><?=$data->jabatan?></td>
                                 <td><?=$data->email_user?></td>
                                 <td>
-																<a href="#lihat_password<?=$data->user_id;?>" data-toggle="modal" >
-																	<i class="far fa-eye text-info mr-5"></i>
-																</a>
 																<a href="<?= site_url('Master_user/edit/'.$data->user_id)?>">
 																	<i class="far fa-edit text-success mr-5"></i>
 																</a>
@@ -93,25 +90,3 @@
 </div>
 <?php endforeach; ?>
 <!-- Akhir Modal Hapus Data -->
-
-<!-- Modal lihat password -->
-<?php foreach ($user->result() as $key => $data) : ?>
-<div class="modal fade" id="lihat_password<?=$data->user_id?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        <?php echo form_open_multipart('Master_user/hapus_data'); ?>
-        <input type="hidden" id="id" name="id" value="<?=$data->user_id?>">
-        <p>Password dari user"<?=$data->nama_user ?>"</p>
-				<p><?=$data->password ?></p>
-      </div>	
-      <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-        <button class="btn btn-danger" type="submit">Hapus</button>
-        <?php echo form_close(); ?>
-      </div>
-    </div>
-  </div>
-</div>
-<?php endforeach; ?>
-<!-- Akhir lihat password -->
