@@ -17,8 +17,8 @@
                     </div>
                     <div class="card-toolbar">
                         <!--begin::Button-->
-                        <a href="<?= site_url('Master_user')?>" class="btn btn-primary font-weight-bolder">
-                        <i class="fas fa-plus-square"></i>Back</a>
+                        <a href="<?= site_url('Master_user')?>" class="btn btn-light-danger font-weight-bolder">
+                        <i class="fas fa-backspace"></i>Back</a>
                         <!--end::Button-->
                     </div>
                 </div>

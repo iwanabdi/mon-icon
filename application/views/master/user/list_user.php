@@ -94,8 +94,8 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Yakin ingin menonaktifkan?</h5>
-        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
+        <button class="btn btn-light-danger" type="button" data-dismiss="modal" aria-label="Close">
+					<i class="far fa-window-close text-danger"></i>
         </button>
       </div>
       <div class="modal-body">
@@ -121,8 +121,8 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Yakin ingin mengaktifkan?</h5>
-        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
+        <button class="btn btn-light-danger" type="button" data-dismiss="modal" aria-label="Close">
+					<i class="far fa-window-close text-danger"></i>
         </button>
       </div>
       <div class="modal-body">

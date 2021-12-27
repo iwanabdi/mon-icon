@@ -10,15 +10,22 @@
             <!--begin::Card-->
             <div class="card card-custom">
 				<!--begin::Body-->
+				<div class="card-header">
+                    <div class="card-title">
+                        <span class="card-icon">
+                            <i class="fas fa-table text-primary"></i>
+                        </span>
+                        <h3 class="card-label">Detail Mitra Info </h3>
+                        <h3 class="card-label"><?=$user->nama_mitra?></h3>
+                    </div>
+                    <div class="card-toolbar">
+                        <!--begin::Button-->
+                        <a href="<?= site_url('Master_team')?>" class="btn btn-light-danger font-weight-bolder">
+                        <i class="fas fa-backspace"></i>Back</a>
+                        <!--end::Button-->
+                    </div>
+                </div>
 				<div class="card-body">
-					<div class="row">
-						<label class="col-xl-5"></label>
-						<div class="col-lg-5 col-xl-6">
-							<h5 class="font-weight-bold mb-6">Detail Mitra Info</h5>
-							<h5 class="font-weight-bold mb-6"><?=$user->nama_mitra?></h5>
-							<br>
-						</div>
-					</div>
 					<div class="form-group row">
 						<label class="col-xl-2 col-lg-3 col-form-label">Alamat</label>
 						<div class="col-xl-9">
@@ -49,7 +56,7 @@
 						</label>
 						<div class="col-xl-3">
 							<!--begin::Button-->
-							<a href="<?= site_url('Master_team/add')?>" class="btn btn-primary font-weight-bolder">
+							<a href="<?= site_url('Master_team/tambah_team/'.$user->mitra_id)?>" class="btn btn-primary font-weight-bolder">
 							<i class="fas fa-plus-square"></i>Tambah Team Mitra</a>
 						</div>
 					</div>

@@ -15,6 +15,7 @@ class Master_team extends CI_Controller {
     public function index()
     {
 		$data['user'] 	= $this->M_mitra->get_mitra();
+		$data['teamlap'] = $this->M_mitra->get_teamlap();
 		$this->template->load('template', 'master/team/list_team',$data);
     }
 
@@ -97,6 +98,26 @@ class Master_team extends CI_Controller {
 		$data['teamlap'] = $this->M_mitra->get_teamlap($id);
 		$this->template->load('template', 'master/team/detail_team', $data);
 	}
+
+	public function tambah_team($id)
+	{
+		$data['user'] = $this->M_mitra->get_mitra($id)->row();
+		$data['mitrapil'] = $this->M_mitra->get_mitra();
+		$data['teamlap'] = $this->M_mitra->get_teamlap($id);
+		$this->template->load('template', 'master/team/add_teamlap', $data);
+	}
+
+	function add_teamlap()
+	{
+		$t_email = $this->input->post('mitra_id');
+		$this->M_mitra->proses_add_team();
+		$this->session->set_flashdata('pesan', 
+		'<div class="alert alert-success" role="alert">
+			Data Berhasil Ditambah!
+		</div>');
+		redirect('Master_team/detail/'.$t_email,'refresh');
+	}
+
 
 
 }

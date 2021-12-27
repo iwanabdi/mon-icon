@@ -6,7 +6,7 @@ class M_mitra extends CI_Model {
     function get_mitra($id = null)
 	{
 		$this->db->select('*');
-		$this->db->from('mitra');
+		$this->db->from('mitraview');
 		if ($id != null) {
 			$this->db->where('mitra_id', $id);
 		}
@@ -100,6 +100,20 @@ class M_mitra extends CI_Model {
     	$this->db->where('mitra_id', $id);
     	$this->db->update('mitra', $data);
     }
+
+	function proses_add_team()
+    {
+    	$data = [
+    		"mitra_id" 			=> $this->input->post('mitra_id'),
+    		"nama_team"			=> $this->input->post('nama'),
+    		"nama_pekerja"		=> $this->input->post('pekerja'),
+			"status"			=> 1,
+			"create_by"   		=> $this->session->userdata('user_id'),
+			"create_on"   		=> date("Y-m-d")
+    	];
+    	$this->db->insert('teamlapangan', $data);
+    }
+
 
 
 }
