@@ -69,7 +69,7 @@ class M_user extends CI_Model {
 	function hapus_data()
     {
 		$data = [
-    		"delete_by"		=> 1,
+    		"delete_by"		=> $this->session->userdata('user_id'),
     		"update_on"		=> date('Y-m-d'),
     		"status"		=> 0
     	];
@@ -81,7 +81,7 @@ class M_user extends CI_Model {
 	function aktif_data()
     {
 		$data = [
-    		"update_by"		=> 1,
+    		"update_by"		=> $this->session->userdata('user_id'),
     		"update_on"		=> date('Y-m-d'),
     		"status"		=> 1
     	];

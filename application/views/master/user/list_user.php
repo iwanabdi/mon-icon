@@ -67,8 +67,7 @@
 																	<a href="#aktif<?=$data->user_id;?>" data-toggle="modal" >
 																	<i class="fas fa-lock-open text-info mr-5"></i>
 																	</a>
-																<?php } ?>
-																<?php if ($data->status == 1){?>
+																<?php } else if ($data->status == 1){?>
 																<a href="#hapus_modal<?=$data->user_id;?>" data-toggle="modal" >
 																	<i class="far fas fa-lock text-danger mr-5"></i>
 																</a>

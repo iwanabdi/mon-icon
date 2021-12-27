@@ -13,7 +13,7 @@
                         <span class="card-icon">
                             <i class="fas fa-table text-primary"></i>
                         </span>
-                        <h3 class="card-label">Add Data User</h3>
+                        <h3 class="card-label">Add Data Mitra</h3>
                     </div>
                     <div class="card-toolbar">
                         <!--begin::Button-->

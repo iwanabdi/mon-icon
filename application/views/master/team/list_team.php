@@ -35,6 +35,7 @@
                                 <th>No-Telp</th>
                                 <th>Alamat</th>
 								<th>Jumlah Tim</th>
+                                <th>Status</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -45,15 +46,29 @@
                                 <td><?=$data->nama_mitra?></td>
                                 <td><?=$data->email?></td>
                                 <td><?=$data->no_telp?></td>
-                                <td><?=$data->alamat?></td>
+                                <td><?=$data->Alamat?></td>
                                 <td><?=$data->status?></td>
+								<td>
+									<?php if ($data->status == 1) {echo "Aktif";}
+									else{echo "Not Aktif";} 
+									?>
+								</td>
                                 <td>
-									<a href="<?= site_url('Master_team/edit/'.$data->user_id)?>">
+									<a href="<?= site_url('Master_team/detail/'.$data->mitra_id)?>">
+										<i class="far fa-eye text-info mr-5"></i>
+									</a>
+									<a href="<?= site_url('Master_team/edit/'.$data->mitra_id)?>">
 										<i class="far fa-edit text-success mr-5"></i>
 									</a>
-									<a href="#hapus_modal<?=$data->user_id;?>" data-toggle="modal" >
+									<?php if ($data->status == 0){?>
+										<a href="#aktif<?=$data->mitra_id;?>" data-toggle="modal" >
+										<i class="fas fa-lock-open text-info mr-5"></i>
+										</a>
+									<?php } else if ($data->status == 1){ ?>
+										<a href="#hapus_modal<?=$data->mitra_id;?>" data-toggle="modal" >
 										<i class="far fas fa-lock text-danger mr-5"></i>
-									</a>
+										</a>
+									<?php } ?>
 								</td>
                             </tr>
 						<?php } ?>
@@ -71,7 +86,7 @@
 
 <!-- Modal Hapus Data-->
 <?php foreach ($user->result() as $key => $data) : ?>
-<div class="modal fade" id="hapus_modal<?=$data->user_id?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="hapus_modal<?=$data->mitra_id?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -81,9 +96,9 @@
         </button>
       </div>
       <div class="modal-body">
-        <?php echo form_open_multipart('Master_user/hapus_data'); ?>
-        <input type="hidden" id="id" name="id" value="<?=$data->user_id?>">
-        <p>Anda akan menonaktifkan data "<?=$data->nama_user ?>"</p>
+        <?php echo form_open_multipart('Master_team/hapus_data'); ?>
+        <input type="hidden" id="id" name="id" value="<?=$data->mitra_id?>">
+        <p>Anda akan menonaktifkan data "<?=$data->nama_mitra ?>"</p>
       </div>	
       <div class="modal-footer">
         <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
@@ -95,3 +110,30 @@
 </div>
 <?php endforeach; ?>
 <!-- Akhir Modal Hapus Data -->
+
+<!-- Modal aktiv user-->
+<?php foreach ($user->result() as $key => $data) : ?>
+<div class="modal fade" id="aktif<?=$data->mitra_id?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Yakin ingin mengaktifkan?</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <?php echo form_open_multipart('Master_team/aktif_data'); ?>
+        <input type="hidden" id="id" name="id" value="<?=$data->mitra_id?>">
+        <p>Anda akan mengaktifkan data "<?=$data->nama_mitra ?>"</p>
+      </div>	
+      <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+        <button class="btn btn-danger" type="submit">Ya</button>
+        <?php echo form_close(); ?>
+      </div>
+    </div>
+  </div>
+</div>
+<?php endforeach; ?>
+<!-- Akhir Modal aktiv user-->

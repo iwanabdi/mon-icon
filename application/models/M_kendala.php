@@ -20,7 +20,7 @@ class M_kendala extends CI_Model {
     	$data = [
     		"nama_kendala" 		=> $this->input->post('nama'),
     		"tipe_kendala"		=> $this->input->post('type'),
-    		"create_by"		=> 1,
+    		"create_by"		=> $this->session->userdata('user_id'),
 			"status"		=> 1,
 			"create_on"   		=> date("Y-m-d")
     	];
@@ -30,7 +30,7 @@ class M_kendala extends CI_Model {
 	function edit_data()
     {
 		$data = [
-    		"update_by"		=> 1,
+    		"update_by"		=> $this->session->userdata('user_id'),
 			"nama_kendala" 		=> $this->input->post('nama'),
     		"tipe_kendala"		=> $this->input->post('type'),
     		"update_on"		=> date('Y-m-d')
@@ -43,7 +43,7 @@ class M_kendala extends CI_Model {
 	function hapus_data()
     {
 		$data = [
-    		"delete_by"		=> 1,
+    		"delete_by"		=> $this->session->userdata('user_id'),
     		"update_on"		=> date('Y-m-d'),
     		"status"		=> 0
     	];
