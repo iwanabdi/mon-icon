@@ -26,6 +26,18 @@ class M_mitra extends CI_Model {
 		return $query;
 	}
 
+	function get_teamlapedit($id = null)
+	{
+		$this->db->select('*');
+		$this->db->from('teamlapangan');
+		if ($id != null) {
+			$this->db->where('teamlap_id', $id);
+		}
+		$this->db->where('status', 1);
+		$query = $this->db->get();
+		return $query;
+	}
+
 	function cek_email($id){
 		$this->db->select('*');
         $this->db->from('mitra');
@@ -112,6 +124,32 @@ class M_mitra extends CI_Model {
 			"create_on"   		=> date("Y-m-d")
     	];
     	$this->db->insert('teamlapangan', $data);
+    }
+
+	function proses_edit_team()
+    {
+    	$data = [
+    		"mitra_id" 			=> $this->input->post('mitra_id'),
+    		"nama_team"			=> $this->input->post('nama'),
+    		"nama_pekerja"		=> $this->input->post('pekerja'),
+			"update_by"   		=> $this->session->userdata('user_id'),
+			"update_on"   		=> date("Y-m-d")
+    	];
+    	$id = $this->input->post('id', true);
+    	$this->db->where('teamlap_id', $id);
+    	$this->db->update('teamlapangan', $data);
+    }
+
+	function hapus_teamlap()
+    {
+    	$data = [
+    		"delete_by"		=> $this->session->userdata('user_id'),
+    		"update_on"		=> date('Y-m-d'),
+    		"status"		=> 0
+    	];
+    	$id = $this->input->post('id', true);
+    	$this->db->where('teamlap_id', $id);
+    	$this->db->update('teamlapangan', $data);
     }
 
 

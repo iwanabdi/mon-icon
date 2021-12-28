@@ -118,6 +118,37 @@ class Master_team extends CI_Controller {
 		redirect('Master_team/detail/'.$t_email,'refresh');
 	}
 
+	function editlap($id)
+	{
+		$data['user'] = $this->M_mitra->get_mitra($id)->row();
+		$data['mitrapil'] = $this->M_mitra->get_mitra();
+		$data['teamlap'] = $this->M_mitra->get_teamlapedit($id)->row();
+		$this->template->load('template', 'master/team/edit_teamlap', $data);
+	}
+
+	function edit_teamlap()
+	{
+		$t_email = $this->input->post('mitra_id');
+		$this->M_mitra->proses_edit_team();
+		$this->session->set_flashdata('pesan', 
+		'<div class="alert alert-success" role="alert">
+			Data Berhasil Diedit!
+		</div>');
+		redirect('Master_team/detail/'.$t_email,'refresh');
+	}
+
+	function hapus_teamlap()
+	{
+		$t_email = $this->input->post('idmit');
+		$this->M_mitra->hapus_teamlap();
+		$this->session->set_flashdata('pesan', 
+			'<div class="alert alert-success" role="alert">
+				Data Berhasil Dihapus!
+			</div>');
+		redirect('Master_team/detail/'.$t_email,'refresh');
+	}
+
+
 
 
 }

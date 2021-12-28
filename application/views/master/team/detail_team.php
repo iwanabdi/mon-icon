@@ -76,7 +76,14 @@
                                 <td><?=$no++;?></td>
                                 <td><?=$data->nama_team?></td>
                                 <td><?=$data->nama_pekerja?></td>
-                                <td></td>
+                                <td>
+									<a href="<?= site_url('Master_team/editlap/'.$data->teamlap_id)?>">
+									<i class="far fa-edit text-success mr-5"></i>
+									</a>
+									<a href="#hapus_modal<?=$data->teamlap_id;?>" data-toggle="modal" >
+									<i class="far fa-trash-alt text-danger mr-5"></i>
+									</a>	
+								</td>
                             </tr>
 						<?php } ?>
                         </tbody>
@@ -91,3 +98,32 @@
     </div>
     <!--end::Entry-->
 </div>
+
+<!-- Modal Hapus Data-->
+<?php foreach ($teamlap->result() as $key => $data) : ?>
+<div class="modal fade" id="hapus_modal<?=$data->teamlap_id?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Yakin ingin menonaktifkan?</h5>
+        <button class="btn btn-light-danger" type="button" data-dismiss="modal" aria-label="Close">
+			<i class="far fa-window-close text-danger"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <?php echo form_open_multipart('Master_team/hapus_teamlap'); ?>
+        <input type="hidden" id="id" name="id" value="<?=$data->teamlap_id?>">
+        <input type="hidden" id="id" name="idmit" value="<?=$data->mitra_id?>">
+        <p>Anda akan menghapus data "<?=$data->nama_team ?>"</p>
+      </div>	
+      <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+        <button class="btn btn-danger" type="submit">Ya</button>
+        <?php echo form_close(); ?>
+      </div>
+    </div>
+  </div>
+</div>
+<?php endforeach; ?>
+<!-- Akhir Modal Hapus Data -->
+

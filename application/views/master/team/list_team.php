@@ -34,13 +34,13 @@
                                 <th>Email</th>
                                 <th>No-Telp</th>
                                 <th>Alamat</th>
-								<th>Jumlah Tim</th>
+																<th>Jumlah Tim</th>
                                 <th>Status</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-						<?php $no = 1;foreach ($user->result() as $key => $data)  {?>
+												<?php $no = 1;foreach ($user->result() as $key => $data)  {?>
                             <tr>
                                 <td><?=$no++;?></td>
                                 <td><?=$data->nama_mitra?></td>
@@ -48,30 +48,30 @@
                                 <td><?=$data->no_telp?></td>
                                 <td><?=$data->Alamat?></td>
                                 <td><?=$data->jumlah?></td>
-								<td>
-									<?php if ($data->status == 1) {echo "Aktif";}
-									else{echo "Not Aktif";} 
-									?>
-								</td>
+																<td>
+																	<?php if ($data->status == 1) {echo "Aktif";}
+																	else{echo "Not Aktif";} 
+																	?>
+																</td>
                                 <td>
-									<a href="<?= site_url('Master_team/detail/'.$data->mitra_id)?>">
-										<i class="far fa-eye text-info mr-5"></i>
-									</a>
-									<a href="<?= site_url('Master_team/edit/'.$data->mitra_id)?>">
-										<i class="far fa-edit text-success mr-5"></i>
-									</a>
-									<?php if ($data->status == 0){?>
-										<a href="#aktif<?=$data->mitra_id;?>" data-toggle="modal" >
-										<i class="fas fa-lock-open text-info mr-5"></i>
-										</a>
-									<?php } else if ($data->status == 1){ ?>
-										<a href="#hapus_modal<?=$data->mitra_id;?>" data-toggle="modal" >
-										<i class="far fas fa-lock text-danger mr-5"></i>
-										</a>
-									<?php } ?>
-								</td>
+																	<a href="<?= site_url('Master_team/detail/'.$data->mitra_id)?>">
+																		<i class="far fa-eye text-info mr-5"></i>
+																	</a>
+																	<a href="<?= site_url('Master_team/edit/'.$data->mitra_id)?>">
+																		<i class="far fa-edit text-success mr-5"></i>
+																	</a>
+																	<?php if ($data->status == 0){?>
+																		<a href="#aktif<?=$data->mitra_id;?>" data-toggle="modal" >
+																		<i class="fas fa-lock-open text-info mr-5"></i>
+																		</a>
+																	<?php } else if ($data->status == 1){ ?>
+																		<a href="#hapus_modal<?=$data->mitra_id;?>" data-toggle="modal" >
+																		<i class="far fas fa-lock text-danger mr-5"></i>
+																		</a>
+																	<?php } ?>
+																</td>
                             </tr>
-						<?php } ?>
+												<?php } ?>
                         </tbody>
                     </table>
                     <!--end: Datatable-->
