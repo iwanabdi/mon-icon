@@ -55,9 +55,9 @@ class M_project extends CI_Model {
     		"update_on"		=> date('Y-m-d'),
     		"status"		=> 0
     	];
-    	$id = $this->input->post('id', true);
-    	$this->db->where('kendala_id', $id);
-    	$this->db->update('kendala', $data);
+    	$id = $this->input->post('project_id', true);
+    	$this->db->where('project_id', $id);
+    	$this->db->update('project', $data);
     }
 
 

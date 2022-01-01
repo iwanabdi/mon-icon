@@ -5,6 +5,7 @@
         <!--begin::Container-->
         <div class="container">
             <!--begin::Notice-->
+			<?= $this->session->flashdata('pesan'); ?>
             <!--end::Notice-->
             <!--begin::Card-->
             <div class="card card-custom">
@@ -68,7 +69,7 @@
 									<a href="#pilihmitra" data-toggle="modal">
 										<i class="far fa-edit text-success mr-5"></i>
 									</a>
-									<a href="#hapus_modal" data-toggle="modal" class="open-AddBookDialog" data-id="<?=$data->project_id?>">
+									<a href="#hapus_modal" data-toggle="modal" id="hapusproject" data-id="<?=$data->project_id?>">
 										<i class="far fa-trash-alt text-danger mr-5"></i>
 									</a>
 								</td>
@@ -97,9 +98,9 @@
         </button>
       </div>
       <div class="modal-body">
-        <?php echo form_open_multipart('Master_user/hapus_data'); ?>
-        <p>Anda akan menonaktifkan data </p>
-        <input type="text" id="bookId" name="bookId" value="">
+        <?php echo form_open_multipart('Project_open/hapus_data'); ?>
+        <p>Anda akan menghapus Project </p>
+        <input type="text" id="project_id" name="project_id" readonly>
       </div>	
       <div class="modal-footer">
         <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
@@ -110,10 +111,12 @@
   </div>
 </div>
 
-<script>
-	$(document).on("click", ".open-AddBookDialog", function () {
-     var myBookId = $(this).data('id');
-     $(".modal-body #bookId").val( myBookId );
-});
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(document).on('click', '#hapusproject', function() {
+      var project_id = $(this).data('id');
+      $('#project_id').val(project_id);
+    })
+  })
 </script>
 <!-- Akhir Modal Hapus Data -->

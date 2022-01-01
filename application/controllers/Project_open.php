@@ -45,6 +45,17 @@ class Project_open extends CI_Controller {
 		redirect('Project_open','refresh');
 	}
 
+	function hapus_data()
+	{
+		$this->M_project->hapus_data();
+		$this->session->set_flashdata('pesan', 
+			'<div class="alert alert-success" role="alert">
+				Data Berhasil Dihapus!
+			</div>');
+		redirect('Project_open','refresh');
+	}
+
+
 }
 
 /* End of file Project_open.php */
