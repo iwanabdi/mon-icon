@@ -9,13 +9,13 @@ class Project_open extends CI_Controller {
         parent::__construct();
 		cekblm_login();
 		$this->load->model('M_project');
-		$this->load->model('M_project');
-
+		$this->load->model('M_mitra');
     }
 
 	public function index()
     {
 		$data['project'] 	= $this->M_project->get_project();
+		$data['mitra'] 	= $this->M_mitra->get_teamlap();
         $this->template->load('template', 'project/project_open',$data);
     }
 

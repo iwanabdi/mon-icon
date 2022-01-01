@@ -65,10 +65,10 @@
 								</td>
                                 <td><?=$data->kendala_id?></td>
 								<td>
-									<a href="pilihmitra">
+									<a href="#pilihmitra" data-toggle="modal">
 										<i class="far fa-edit text-success mr-5"></i>
 									</a>
-									<a href="#hapus_modal<?=$data->project_id;?>" data-toggle="modal" >
+									<a href="#hapus_modal" data-toggle="modal" class="open-AddBookDialog" data-id="<?=$data->project_id?>">
 										<i class="far fa-trash-alt text-danger mr-5"></i>
 									</a>
 								</td>
@@ -87,60 +87,33 @@
 </div>
 
 <!-- Modal Hapus Data-->
-<div class="modal fade" id="pilihmitra" tabindex="-2" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
+<div class="modal fade" id="hapus_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Silahkan Pilih Mitra</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+        <h5 class="modal-title" id="exampleModalLabel">Yakin ingin menghapus?</h5>
+        <button class="btn btn-light-danger" type="button" data-dismiss="modal" aria-label="Close">
+					<i class="far fa-window-close text-danger"></i>
         </button>
       </div>
       <div class="modal-body">
-        <div class="form-group row">
-          <div class="table-responsive">
-            <table class="table table-bordered" width="100%" id="dataTable1" cellspacing="0">
-              <thead>
-              <tr class="text-center">
-                <th>ID</th>
-                <th>Mitra</th>
-                <th>Pilih</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
-              foreach($alamat->result() as $i => $data)  {?>
-              <tr>
-                <td><?=$data->alamat_id?></td>
-                <td><?=$data->koordinat?></td>
-                <td class="text-center">
-                <button class="btn btn-info" id="selectalamat1"
-                data-id="<?= $data->alamat_id?>" 
-                data-alamat="<?= $data->jalan,', ',$data->kota,', ',$data->provinsi?>"
-                data-pilih="<?= $data->nama_customer?>">Pilih
-                </button>
-                </td>
-              </tr>
-            <?php } ?>
-            </tbody>
-            </table>
-          </div>
-        </div>
+        <?php echo form_open_multipart('Master_user/hapus_data'); ?>
+        <p>Anda akan menonaktifkan data </p>
+        <input type="text" id="bookId" name="bookId" value="">
+      </div>	
+      <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+        <button class="btn btn-danger" type="submit">Ya</button>
+        <?php echo form_close(); ?>
       </div>
     </div>
   </div>
 </div>
 
-<script type="text/javascript">
-  $(document).ready(function() {
-    $(document).on('click', '#selectalamat1', function() {
-      var alamat_id = $(this).data('id');
-      var alamat_lengkap = $(this).data('alamat');
-      $('#alamat_id1').val(alamat_id);
-      $('#nama_alamat1').val(alamat_lengkap);
-      $('#pilihalamat1').modal('hide');
-    })
-  })
+<script>
+	$(document).on("click", ".open-AddBookDialog", function () {
+     var myBookId = $(this).data('id');
+     $(".modal-body #bookId").val( myBookId );
+});
 </script>
-
 <!-- Akhir Modal Hapus Data -->
