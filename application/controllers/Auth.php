@@ -29,6 +29,7 @@ class Auth extends CI_Controller {
 					'user_id' 		=> $row->user_id,
 					'nama'			=> $row->nama_user,
 					'email'			=> $row->email_user,
+					'status'		=> 1,
 					'jabatan'		=> $row->jabatan
 				);
 				$this->session->set_userdata($param);
@@ -55,6 +56,7 @@ class Auth extends CI_Controller {
 				$param = array(
 					'user_id' 		=> $row->mitra_id,
 					'nama'			=> $row->nama_mitra,
+					'status'		=> 2,
 					'email'			=> $row->email
 				);
 				$this->session->set_userdata($param);
@@ -73,6 +75,12 @@ class Auth extends CI_Controller {
 				redirect('Auth');
 			}
 		}
+	}
+
+	public function logout()
+	{
+		$this->session->sess_destroy();
+		redirect('home','refresh');
 	}
 
 

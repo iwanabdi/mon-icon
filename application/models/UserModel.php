@@ -34,6 +34,17 @@ class UserModel extends CI_Model {
         return $query;
     }
 
+	public function get_mitra($id = null)
+    {
+        $this->db->select('*');
+        $this->db->from('mitra');
+        if ($id != null) {
+            $this->db->where('mitra_id', $id);
+        }
+        $query = $this->db->get();
+        return $query;
+    }
+
 }
 
 /* End of file UserModel.php */
