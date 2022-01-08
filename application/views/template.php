@@ -17,9 +17,6 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- Mirrored from preview.keenthemes.com/metronic/demo1/builder.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Jan 2021 06:44:51 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
-		<!-- Google Tag Manager -->
-		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src= '../../../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-5FS8GGP');</script>
-		<!-- End Google Tag Manager -->
 		<meta charset="utf-8" />
 		<title>MONICON</title>
 		<meta name="description" content="Layout options builder" />
@@ -29,7 +26,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
 		<!--end::Fonts-->
 		<!-- Datatables.Net -->
-		<link href="<?= base_url('assets')?>/theme/html/demo1/dist/assets/plugins/custom/datatables/datatables.bundle1894.css?v=7.1.9" rel="stylesheet" type="text/css" />
+		<link href="<?= base_url('assets')?>/js/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
 		<!-- END Datatable.Net -->
 		<!--begin::Global Theme Styles(used by all pages)-->
 		<link href="<?= base_url('assets')?>/theme/html/demo1/dist/assets/plugins/global/plugins.bundle1894.css?v=7.1.9" rel="stylesheet" type="text/css" />
@@ -45,16 +42,13 @@ License: You must have a valid license purchased only from themeforest(the above
 		<link rel="shortcut icon" href="https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/media/logos/favicon.ico" />
 		<!-- Hotjar Tracking Code for keenthemes.com -->
 		<script>(function(h,o,t,j,a,r){ h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)}; h._hjSettings={hjid:1070954,hjsv:6}; a=o.getElementsByTagName('head')[0]; r=o.createElement('script');r.async=1; r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv; a.appendChild(r); })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');</script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script> -->
+		<script src="<?= base_url('assets')?>/js/jquery-3.6.0.min.js"></script>
+
 	</head>
 	<!--end::Head-->
 	<!--begin::Body-->
 	<body id="kt_body" class="header-fixed header-mobile-fixed subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
-		<!-- Google Tag Manager (noscript) -->
-		<noscript>
-			<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5FS8GGP" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-		</noscript>
-		<!-- End Google Tag Manager (noscript) -->
 		<!--begin::Main-->
 		<!--begin::Header Mobile-->
 		<div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
@@ -283,7 +277,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								</li>
 
 								<li class="menu-item" aria-haspopup="true">
-									<a href="#" class="menu-link">
+									<a href="<?= site_url('Stg')?>" class="menu-link">
 										<span class="svg-icon menu-icon">
 											<!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Home/Library.svg-->
 											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -754,20 +748,19 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!--end::Global Theme Bundle-->
 		<!--begin::Page Scripts(used by this page)-->
 		<script src="<?= base_url('assets')?>/theme/html/demo1/dist/assets/js/pages/builder1894.js?v=7.1.9"></script>
-		<script src="<?= base_url('assets')?>/theme/html/demo1/dist/assets/js/pages/jquery.min.js"></script>
 		<!--end::Page Scripts-->
 		<!--begin::Page Vendors(used by this page)-->
-		<script src="<?= base_url('assets')?>/theme/html/demo1/dist/assets/plugins/custom/datatables/datatables.bundle1894.js?v=7.1.9"></script>
+		<script src="<?= base_url('assets')?>/js/jquery.dataTables.min.js"></script>	
 		<!--end::Page Vendors-->
-		<!--begin::Page Scripts(used by this page)-->
-		<script src="<?= base_url('assets')?>/theme/html/demo1/dist/assets/js/pages/crud/datatables/data-sources/html1894.js?v=7.1.9"></script>
-		<!--end::Page Scripts-->
+		<script src="<?= base_url('assets')?>/js/datatables-demo.js"></script>
+
+
 		<!-- Master Template JS -->
 		<!--begin::Page Vendors(used by this page)-->
-		<script src="<?= base_url('assets')?>/theme/html/demo1/dist/assets/plugins/custom/ckeditor/ckeditor-document.bundle1894.js?v=7.1.9"></script>
+		<!-- <script src="<?= base_url('assets')?>/theme/html/demo1/dist/assets/plugins/custom/ckeditor/ckeditor-document.bundle1894.js?v=7.1.9"></script> -->
 		<!--end::Page Vendors-->
 		<!--begin::Page Scripts(used by this page)-->
-		<script src="<?= base_url('assets')?>/theme/html/demo1/dist/assets/js/pages/crud/forms/editors/ckeditor-document1894.js?v=7.1.9"></script>
+		<!-- <script src="<?= base_url('assets')?>/theme/html/demo1/dist/assets/js/pages/crud/forms/editors/ckeditor-document1894.js?v=7.1.9"></script> -->
 		<!--end::Page Scripts-->
 
 

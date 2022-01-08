@@ -70,7 +70,7 @@
       </div>
       <div class="modal-body">
         <div class="table-responsive">
-            <table class="table table-bordered" width="100%" id="dataTable1" cellspacing="0">
+            <table class="table table-bordered" width="100%" id="dataTable" cellspacing="0">
               <thead>
               <tr class="text-center">
                 <th>Nama Mitra</th>

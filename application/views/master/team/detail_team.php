@@ -61,7 +61,7 @@
 						</div>
 					</div>
 					<!--begin: Datatable-->
-                    <table class="table table-bordered table-hover table-checkable" id="kt_datatable" style="margin-top: 13px !important">
+                    <table class="able table-separate table-head-custom table-checkable" id="dataTable" style="margin-top: 13px !important">
                         <thead>
                             <tr>
                                 <th>No</th>

@@ -14,7 +14,7 @@
                         <span class="card-icon">
                             <i class="fas fa-table text-primary"></i>
                         </span>
-                        <h3 class="card-label">Datatable Project Open</h3>
+                        <h3 class="card-label">Data Project Open</h3>
                     </div>
                     <div class="card-toolbar">
                         <a href="<?= site_url('Project_open/add')?>" class="btn btn btn-light-success font-weight-bolder">
@@ -25,7 +25,9 @@
                 </div>
                 <div class="card-body">
                     <!--begin: Datatable-->
-                    <table class="table table-bordered table-hover table-checkable" id="kt_datatable3" style="margin-top: 13px !important">
+										<form action="<?= site_url('Project_detail')?>" method="POST" id="idde">
+						<input type="hidden" id="project_iddetail" name="project_iddetail" required/>
+                    <table class="table table-separate table-head-custom table-checkable " id="dataTable" >
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -43,8 +45,6 @@
                             </tr>
                         </thead>
                         <tbody>
-						<form action="<?= site_url('Project_detail')?>" method="POST" id="idde">
-						<input type="hidden" id="project_iddetail" name="project_iddetail" required/>
 						<?php $no = 1;foreach ($project->result() as $key => $data)  {?>
                             <tr>
                                 <td><?=$no++;?></td>
@@ -83,9 +83,10 @@
 								</td>
                             </tr>
 							<?php } ?>
-						</form>
+						
                         </tbody>
                     </table>
+										</form>
                     <!--end: Datatable-->
                 </div>
             </div>
@@ -143,7 +144,11 @@
       <div class="modal-body">
         <div class="form-group row">
           <div class="table-responsive">
-            <table class="table table-bordered" width="100%" id="dataTable" cellspacing="0">
+					<form action="<?= site_url('Project_open/dispos_mitra')?>" method="POST" id="frmdisposmitra">
+			<input type="hidden" id="teamlap_id" name="teamlap_id" required/>
+			<input type="hidden" id="mitra_id" name="mitra_id" required/>
+			<input type="hidden" id="project_iddispos" name="project_id" required/>
+            <table class="table table-separate table-head-custom table-checkable" width="100%" id="dataTable1" cellspacing="0">
               <thead>
               <tr class="text-center">
                 <th>ID</th>
@@ -152,10 +157,6 @@
               </tr>
             </thead>
             <tbody>
-			<form action="<?= site_url('Project_open/dispos_mitra')?>" method="POST" id="frmdisposmitra">
-			<input type="hidden" id="teamlap_id" name="teamlap_id" required/>
-			<input type="hidden" id="mitra_id" name="mitra_id" required/>
-			<input type="hidden" id="project_iddispos" name="project_id" required/>
               <?php
               foreach($mitra->result() as $i => $data)  {?>
               <tr>
@@ -168,9 +169,9 @@
                 </td>
               </tr>
             <?php } ?>
-			</form>
             </tbody>
             </table>
+			</form>
           </div>
         </div>
       </div>
@@ -219,7 +220,10 @@
       <div class="modal-body">
         <div class="form-group row">
           <div class="table-responsive">
-            <table class="table table-bordered" width="100%" id="dataTable" cellspacing="0">
+					<form action="<?= site_url('Project_open/dispos_pm')?>" method="POST" id="pilihpmform">
+						<input type="hidden" id="user_idpm" name="user_id" required/>
+						<input type="hidden" id="projectid_ptl" name="project_id" required/>
+            <table class="table table-separate table-head-custom table-checkable" width="100%" id="dataTable2" cellspacing="0">
               <thead>
               <tr class="text-center">
                 <th>ID</th>
@@ -228,9 +232,6 @@
               </tr>
             </thead>
             <tbody>
-						<form action="<?= site_url('Project_open/dispos_pm')?>" method="POST" id="pilihpmform">
-						<input type="hidden" id="user_idpm" name="user_id" required/>
-						<input type="hidden" id="projectid_ptl" name="project_id" required/>
               <?php
               foreach($user->result() as $i => $data)  {?>
               <tr>
@@ -243,10 +244,10 @@
                 </td>
               </tr>
             <?php } ?>
-						</form>
             </tbody>
             </table>
           </div>
+					</form>
         </div>
       </div>
     </div>
