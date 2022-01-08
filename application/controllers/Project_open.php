@@ -10,12 +10,14 @@ class Project_open extends CI_Controller {
 		cekblm_login();
 		$this->load->model('M_project');
 		$this->load->model('M_mitra');
+		$this->load->model('M_user');
     }
 
 	public function index()
     {
-		$data['project'] 	= $this->M_project->get_project();
+		$data['project'] 	= $this->M_project->get_project_user($this->session->userdata('user_id'));
 		$data['mitra'] 	= $this->M_mitra->get_teamlap();
+		$data['user'] 	= $this->M_user->get_ptl();
         $this->template->load('template', 'project/project_open',$data);
     }
 
@@ -23,16 +25,6 @@ class Project_open extends CI_Controller {
     {
 		$data['project'] 	= $this->M_project->get_project();
         $this->template->load('template', 'project/project_add',$data);
-    }
-
-	public function detail($id =null)
-    {
-		$data['project'] 	= $this->M_project->get_project();
-		if ($id != null) {
-			$this->template->load('template', 'project/project_detail',$data);
-		}else {
-        	redirect('Project_open','refresh');
-		}
     }
 
 	function proses_add_data()
@@ -55,6 +47,23 @@ class Project_open extends CI_Controller {
 		redirect('Project_open','refresh');
 	}
 
+	function dispos_mitra(){
+		$this->M_project->dispos_mitra();
+		$this->session->set_flashdata('pesan', 
+			'<div class="alert alert-success" role="alert">
+				Berhasil Didispose Mitra!
+			</div>');
+		redirect('Project_open','refresh');
+	}
+
+	function dispos_pm(){
+		$this->M_project->dispos_pm();
+		$this->session->set_flashdata('pesan', 
+			'<div class="alert alert-success" role="alert">
+				Berhasil Didispose PM!
+			</div>');
+		redirect('Project_open','refresh');
+	}
 
 }
 

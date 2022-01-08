@@ -15,6 +15,19 @@ class M_user extends CI_Model {
 		return $query;
 	}
 
+	function get_ptl($id = null)
+	{
+		$this->db->select('*');
+		$this->db->from('user');
+		if ($id != null) {
+			$this->db->where('user_id', $id);
+		}
+		$this->db->where('status', 1);
+		$this->db->where('jabatan <=', 2);
+		$query = $this->db->get();
+		return $query;
+	}
+
 	function cek_email($id){
 		$this->db->select('*');
         $this->db->from('user');

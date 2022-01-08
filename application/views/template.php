@@ -97,8 +97,8 @@ License: You must have a valid license purchased only from themeforest(the above
 					<!--begin::Brand-->
 					<div class="brand flex-column-auto" id="kt_brand">
 						<!--begin::Logo-->
-						<a href="index.html" class="brand-logo">
-							<img alt="Logo" src="<?= base_url('assets')?>/theme/html/demo1/dist/assets/media/logos/logo-light.png" />
+						<a href="<?= site_url('Home')?>" class="brand-logo">
+							<h3>Monact</h3>
 						</a>
 						<!--end::Logo-->
 						<!--begin::Toggle-->
@@ -151,7 +151,8 @@ License: You must have a valid license purchased only from themeforest(the above
 									<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
 								</li>
 
-                                <li class="menu-item menu-item-submenu 
+                                <?php if($this->session->userdata('jabatan') ==1){ ?>
+								<li class="menu-item menu-item-submenu 
 								<?=
 								$this->uri->segment(1) == 'Master_user' ||
 								$this->uri->segment(1) == 'Master_team' ||
@@ -225,7 +226,8 @@ License: You must have a valid license purchased only from themeforest(the above
 										</ul>
 									</div>
 								</li>
-                                
+                                <?php } ?>
+
                                 <li class="menu-item menu-item-submenu
 								<?=
 								$this->uri->segment(1) == 'Project_open' ||
